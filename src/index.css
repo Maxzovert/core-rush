@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary : #ff5252
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.link:hover{
+    color: #ff5252;
+}
