@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GoGitCompare } from "react-icons/go";
 import { FaRegHeart } from "react-icons/fa6";
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from "@mui/material/Tooltip";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -90,32 +90,32 @@ const Header = () => {
               <li>|</li>
 
               <li>
-              <Tooltip title="Compare">
-                <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={4} color="secondary">
-                    <GoGitCompare />
-                  </StyledBadge>
-                </IconButton>
+                <Tooltip title="Compare">
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={4} color="secondary">
+                      <GoGitCompare />
+                    </StyledBadge>
+                  </IconButton>
                 </Tooltip>
               </li>
 
               <li>
-              <Tooltip title="Wishlist">
-                <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={4} color="secondary">
-                  <FaRegHeart />
-                  </StyledBadge>
-                </IconButton>
+                <Tooltip title="Wishlist">
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={4} color="secondary">
+                      <FaRegHeart />
+                    </StyledBadge>
+                  </IconButton>
                 </Tooltip>
               </li>
 
               <li>
-              <Tooltip title="Cart">
-                <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={4} color="secondary">
-                    <AiOutlineShoppingCart />
-                  </StyledBadge>
-                </IconButton>
+                <Tooltip title="Cart">
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={4} color="secondary">
+                      <AiOutlineShoppingCart />
+                    </StyledBadge>
+                  </IconButton>
                 </Tooltip>
               </li>
             </ul>
