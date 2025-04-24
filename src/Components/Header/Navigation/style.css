@@ -1,3 +1,7 @@
 .categoryPanel button{
     text-transform: capitalize !important;
 }
+
+/* .categoryPanel .submenu { 
+    display: none;
+} */
