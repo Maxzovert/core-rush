@@ -84,15 +84,65 @@ const CategoryPanel = (props) => {
                   </div>
                   {innerSubmenuIndex === 0 && (
                     <ul className="inner_submenu w-full pl-3">
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Rolling Diamond</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Smart Tablet</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Crepe T-Shirt</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Leather Watch</Link></li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Rolling Diamond
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Smart Tablet
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Crepe T-Shirt
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Leather Watch
+                        </Link>
+                      </li>
                     </ul>
                   )}
                 </li>
               </ul>
             )}
+          </li>
+
+          {/* Jewellery */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Jewellery
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Watches */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Watches
+                </Button>
+              </Link>
+            </div>
           </li>
 
           {/* OUTWERE 🧥 */}
@@ -138,10 +188,38 @@ const CategoryPanel = (props) => {
                   </div>
                   {innerSubmenuIndex === 1 && (
                     <ul className="inner_submenu w-full pl-3">
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Rolling Diamond</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Smart Tablet</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Crepe T-Shirt</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Leather Watch</Link></li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Rolling Diamond
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Smart Tablet
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Crepe T-Shirt
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Leather Watch
+                        </Link>
+                      </li>
                     </ul>
                   )}
                 </li>
@@ -149,58 +227,103 @@ const CategoryPanel = (props) => {
             )}
           </li>
 
-          {/* FOOTWEARS 👟 */}
+          {/* Cosmetics */}
           <li className="list-none">
             <div className="flex items-center relative">
               <Link to="/" className="w-full">
                 <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                  Footwears
+                  Cosmetics
                 </Button>
               </Link>
-              {submenuIndex !== 2 ? (
-                <MdOutlineAddBox
-                  className="absolute top-[10px] right-[15px] cursor-pointer"
-                  onClick={() => openSubmenu(2)}
-                />
-              ) : (
-                <FaRegSquareMinus
-                  className="absolute top-[10px] right-[15px] cursor-pointer"
-                  onClick={() => openSubmenu(2)}
-                />
-              )}
             </div>
-            {submenuIndex === 2 && (
-              <ul className="submenu w-full pl-3">
-                <li className="list-none">
-                  <div className="flex items-center relative">
-                    <Link to="/" className="w-full">
-                      <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                        Shoes
-                      </Button>
-                    </Link>
-                    {innerSubmenuIndex !== 2 ? (
-                      <MdOutlineAddBox
-                        className="absolute top-[10px] right-[15px] cursor-pointer"
-                        onClick={() => openInnerSubMenu(2)}
-                      />
-                    ) : (
-                      <FaRegSquareMinus
-                        className="absolute top-[10px] right-[15px] cursor-pointer"
-                        onClick={() => openInnerSubMenu(2)}
-                      />
-                    )}
-                  </div>
-                  {innerSubmenuIndex === 2 && (
-                    <ul className="inner_submenu w-full pl-3">
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Sneakers</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Boots</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Sandals</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Loafers</Link></li>
-                    </ul>
-                  )}
-                </li>
-              </ul>
-            )}
+          </li>
+
+          {/* Accessories */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Accessories
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Electronics */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Electronics
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Furniture */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Furniture
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Sunglasses */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Sunglasses
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* X-Box Controller */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  X-Box Controller
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Leather watch */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Leather watch
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Smart Tablet */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Smart Tablet
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Purse */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Purse
+                </Button>
+              </Link>
+            </div>
           </li>
         </ul>
       </div>
