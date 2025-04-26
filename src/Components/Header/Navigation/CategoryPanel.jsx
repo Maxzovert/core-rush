@@ -1,4 +1,3 @@
-// 👇 CHANGES only in index values and logic!
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -19,7 +18,7 @@ const CategoryPanel = (props) => {
     } else {
       setSubMenuIndex(index);
     }
-    setInnerSubMenuIndex(null); // Reset inner submenu when main menu changes
+    setInnerSubMenuIndex(null);
   };
 
   const openInnerSubMenu = (index) => {
@@ -32,7 +31,6 @@ const CategoryPanel = (props) => {
 
   const list = () => (
     <Box sx={{ width: 250 }} role="presentation" className="categoryPanel">
-      {/* Title */}
       <h2 className="p-3 text-[16px] font-[500] flex items-center justify-between">
         Shop by Category
         <IoCloseSharp
@@ -41,52 +39,55 @@ const CategoryPanel = (props) => {
         />
       </h2>
 
-      {/* Menu */}
       <div className="scroll">
         <ul className="w-full">
           {/* FASHION 👗 */}
-          <li className="list-none flex items-center relative">
-            <Link to="/" className="w-full">
-              <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                Fashion
-              </Button>
-            </Link>
-            {submenuIndex !== 0 ? (
-              <MdOutlineAddBox
-                className="absolute top-[10px] right-[15px] cursor-pointer"
-                onClick={() => openSubmenu(0)}
-              />
-            ) : (
-              <FaRegSquareMinus
-                className="absolute top-[10px] right-[15px] cursor-pointer"
-                onClick={() => openSubmenu(0)}
-              />
-            )}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Fashion
+                </Button>
+              </Link>
+              {submenuIndex !== 0 ? (
+                <MdOutlineAddBox
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(0)}
+                />
+              ) : (
+                <FaRegSquareMinus
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(0)}
+                />
+              )}
+            </div>
             {submenuIndex === 0 && (
-              <ul className="submenu absolute top-[100%] left-[0] w-full pl-3">
-                <li className="list-none relative">
-                  <Link to="/" className="w-full">
-                    <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                      Apparel
-                    </Button>
-                  </Link>
-                  {innerSubmenuIndex !== 0 ? (
-                    <MdOutlineAddBox
-                      className="absolute top-[10px] right-[15px] cursor-pointer"
-                      onClick={() => openInnerSubMenu(0)}
-                    />
-                  ) : (
-                    <FaRegSquareMinus
-                      className="absolute top-[10px] right-[15px] cursor-pointer"
-                      onClick={() => openInnerSubMenu(0)}
-                    />
-                  )}
+              <ul className="submenu w-full pl-3">
+                <li className="list-none">
+                  <div className="flex items-center relative">
+                    <Link to="/" className="w-full">
+                      <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                        Apparel
+                      </Button>
+                    </Link>
+                    {innerSubmenuIndex !== 0 ? (
+                      <MdOutlineAddBox
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(0)}
+                      />
+                    ) : (
+                      <FaRegSquareMinus
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(0)}
+                      />
+                    )}
+                  </div>
                   {innerSubmenuIndex === 0 && (
-                    <ul className="inner_submenu absolute top-[100%] left-[0] w-full pl-3">
-                      <li><Link to="/" className="link text-[14px] px-3">Rolling Diamond</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3">Smart Tablet</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3">Crepe T-Shirt</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3">Leather Watch</Link></li>
+                    <ul className="inner_submenu w-full pl-3">
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Rolling Diamond</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Smart Tablet</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Crepe T-Shirt</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Leather Watch</Link></li>
                     </ul>
                   )}
                 </li>
@@ -95,48 +96,106 @@ const CategoryPanel = (props) => {
           </li>
 
           {/* OUTWERE 🧥 */}
-          <li className="list-none flex items-center relative">
-            <Link to="/" className="w-full">
-              <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                Outwere
-              </Button>
-            </Link>
-            {submenuIndex !== 1 ? (
-              <MdOutlineAddBox
-                className="absolute top-[10px] right-[15px] cursor-pointer"
-                onClick={() => openSubmenu(1)}
-              />
-            ) : (
-              <FaRegSquareMinus
-                className="absolute top-[10px] right-[15px] cursor-pointer"
-                onClick={() => openSubmenu(1)}
-              />
-            )}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Outwere
+                </Button>
+              </Link>
+              {submenuIndex !== 1 ? (
+                <MdOutlineAddBox
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(1)}
+                />
+              ) : (
+                <FaRegSquareMinus
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(1)}
+                />
+              )}
+            </div>
             {submenuIndex === 1 && (
-              <ul className="submenu absolute top-[100%] left-[0] w-full pl-3">
-                <li className="list-none relative">
-                  <Link to="/" className="w-full">
-                    <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                      Apparel
-                    </Button>
-                  </Link>
-                  {innerSubmenuIndex !== 1 ? (
-                    <MdOutlineAddBox
-                      className="absolute top-[10px] right-[15px] cursor-pointer"
-                      onClick={() => openInnerSubMenu(1)}
-                    />
-                  ) : (
-                    <FaRegSquareMinus
-                      className="absolute top-[10px] right-[15px] cursor-pointer"
-                      onClick={() => openInnerSubMenu(1)}
-                    />
-                  )}
+              <ul className="submenu w-full pl-3">
+                <li className="list-none">
+                  <div className="flex items-center relative">
+                    <Link to="/" className="w-full">
+                      <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                        Apparel
+                      </Button>
+                    </Link>
+                    {innerSubmenuIndex !== 1 ? (
+                      <MdOutlineAddBox
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(1)}
+                      />
+                    ) : (
+                      <FaRegSquareMinus
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(1)}
+                      />
+                    )}
+                  </div>
                   {innerSubmenuIndex === 1 && (
-                    <ul className="inner_submenu absolute top-[100%] left-[0] w-full pl-3">
-                      <li><Link to="/" className="link text-[14px] px-3">Rolling Diamond</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3">Smart Tablet</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3">Crepe T-Shirt</Link></li>
-                      <li><Link to="/" className="link text-[14px] px-3">Leather Watch</Link></li>
+                    <ul className="inner_submenu w-full pl-3">
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Rolling Diamond</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Smart Tablet</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Crepe T-Shirt</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Leather Watch</Link></li>
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {/* FOOTWEARS 👟 */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Footwears
+                </Button>
+              </Link>
+              {submenuIndex !== 2 ? (
+                <MdOutlineAddBox
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(2)}
+                />
+              ) : (
+                <FaRegSquareMinus
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(2)}
+                />
+              )}
+            </div>
+            {submenuIndex === 2 && (
+              <ul className="submenu w-full pl-3">
+                <li className="list-none">
+                  <div className="flex items-center relative">
+                    <Link to="/" className="w-full">
+                      <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                        Shoes
+                      </Button>
+                    </Link>
+                    {innerSubmenuIndex !== 2 ? (
+                      <MdOutlineAddBox
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(2)}
+                      />
+                    ) : (
+                      <FaRegSquareMinus
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(2)}
+                      />
+                    )}
+                  </div>
+                  {innerSubmenuIndex === 2 && (
+                    <ul className="inner_submenu w-full pl-3">
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Sneakers</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Boots</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Sandals</Link></li>
+                      <li><Link to="/" className="link text-[14px] px-3 block py-1">Loafers</Link></li>
                     </ul>
                   )}
                 </li>
