@@ -49,3 +49,16 @@ nav ul button{
   color: #000;
   
 }
+
+.homecatSlider .swiper-button-prev , .homecatSlider .swiper-button-next{
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  text-align: center;
+}
+.homecatSlider .swiper-button-prev:hover , .homecatSlider .swiper-button-next:hover{
+  background: #ff5252 ;
+}
+.homecatSlider .swiper-button-prev::after , .homecatSlider .swiper-button-next::after{
+  font-size: 15px !important;
+}
