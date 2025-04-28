@@ -8,7 +8,7 @@ import CategoryPanel from "./CategoryPanel";
 import "../Navigation/style.css";
 
 const Navigation = () => {
-  const [isOpenCatPanel, setIsOpenCatPanel] = useState(true);
+  const [isOpenCatPanel, setIsOpenCatPanel] = useState(false);
   const openCategoryPanel = (isOpenCatPanel) => {
     setIsOpenCatPanel(isOpenCatPanel);
   };

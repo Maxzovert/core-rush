@@ -29,100 +29,6 @@ const CategoryPanel = (props) => {
     }
   };
 
-  const categories = [
-    {
-      name: "Fashion",
-      path: "/fashion",
-      hasSubmenu: true,
-      subcategories: [
-        {
-          name: "Apparel",
-          path: "/fashion/apparel",
-          hasSubmenu: true,
-          items: [
-            { name: "Rolling Diamond", path: "/fashion/apparel/rolling-diamond" },
-            { name: "Smart Tablet", path: "/fashion/apparel/smart-tablet" },
-            { name: "Crepe T-Shirt", path: "/fashion/apparel/crepe-t-shirt" },
-            { name: "Leather Watch", path: "/fashion/apparel/leather-watch" },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Jewellery",
-      path: "/jewellery",
-      hasSubmenu: false,
-    },
-    {
-      name: "Watches",
-      path: "/watches",
-      hasSubmenu: false,
-    },
-    {
-      name: "Outwere",
-      path: "/outwere",
-      hasSubmenu: true,
-      subcategories: [
-        {
-          name: "Apparel",
-          path: "/outwere/apparel",
-          hasSubmenu: true,
-          items: [
-            { name: "Rolling Diamond", path: "/outwere/apparel/rolling-diamond" },
-            { name: "Smart Tablet", path: "/outwere/apparel/smart-tablet" },
-            { name: "Crepe T-Shirt", path: "/outwere/apparel/crepe-t-shirt" },
-            { name: "Leather Watch", path: "/outwere/apparel/leather-watch" },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Cosmetics",
-      path: "/cosmetics",
-      hasSubmenu: false,
-    },
-    {
-      name: "Accessories",
-      path: "/accessories",
-      hasSubmenu: false,
-    },
-    {
-      name: "Electronics",
-      path: "/electronics",
-      hasSubmenu: false,
-    },
-    {
-      name: "Furniture",
-      path: "/furniture",
-      hasSubmenu: false,
-    },
-    {
-      name: "Sunglasses",
-      path: "/sunglasses",
-      hasSubmenu: false,
-    },
-    {
-      name: "X-Box Controller",
-      path: "/xbox-controller",
-      hasSubmenu: false,
-    },
-    {
-      name: "Leather watch",
-      path: "/leather-watch",
-      hasSubmenu: false,
-    },
-    {
-      name: "Smart Tablet",
-      path: "/smart-tablet",
-      hasSubmenu: false,
-    },
-    {
-      name: "Purse",
-      path: "/purse",
-      hasSubmenu: false,
-    },
-  ];
-
   const list = () => (
     <Box sx={{ width: 250 }} role="presentation" className="categoryPanel">
       <h2 className="p-3 text-[16px] font-[500] flex items-center justify-between">
@@ -135,78 +41,290 @@ const CategoryPanel = (props) => {
 
       <div className="scroll">
         <ul className="w-full">
-          {categories.map((category, index) => (
-            <li key={index} className="list-none">
-              <div className="flex items-center relative">
-                <Link to={category.path} className="w-full">
-                  <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                    {category.name}
-                  </Button>
-                </Link>
-                {category.hasSubmenu && (
-                  <>
-                    {submenuIndex !== index ? (
+          {/* FASHION 👗 */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Fashion
+                </Button>
+              </Link>
+              {submenuIndex !== 0 ? (
+                <MdOutlineAddBox
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(0)}
+                />
+              ) : (
+                <FaRegSquareMinus
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(0)}
+                />
+              )}
+            </div>
+            {submenuIndex === 0 && (
+              <ul className="submenu w-full pl-3">
+                <li className="list-none">
+                  <div className="flex items-center relative">
+                    <Link to="/" className="w-full">
+                      <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                        Apparel
+                      </Button>
+                    </Link>
+                    {innerSubmenuIndex !== 0 ? (
                       <MdOutlineAddBox
                         className="absolute top-[10px] right-[15px] cursor-pointer"
-                        onClick={() => openSubmenu(index)}
+                        onClick={() => openInnerSubMenu(0)}
                       />
                     ) : (
                       <FaRegSquareMinus
                         className="absolute top-[10px] right-[15px] cursor-pointer"
-                        onClick={() => openSubmenu(index)}
+                        onClick={() => openInnerSubMenu(0)}
                       />
                     )}
-                  </>
-                )}
-              </div>
-
-              {submenuIndex === index && category.hasSubmenu && (
-                <ul className="submenu w-full pl-3">
-                  {category.subcategories.map((subcategory, subIndex) => (
-                    <li key={subIndex} className="list-none">
-                      <div className="flex items-center relative">
-                        <Link to={subcategory.path} className="w-full">
-                          <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
-                            {subcategory.name}
-                          </Button>
+                  </div>
+                  {innerSubmenuIndex === 0 && (
+                    <ul className="inner_submenu w-full pl-3">
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Rolling Diamond
                         </Link>
-                        {subcategory.hasSubmenu && (
-                          <>
-                            {innerSubmenuIndex !== subIndex ? (
-                              <MdOutlineAddBox
-                                className="absolute top-[10px] right-[15px] cursor-pointer"
-                                onClick={() => openInnerSubMenu(subIndex)}
-                              />
-                            ) : (
-                              <FaRegSquareMinus
-                                className="absolute top-[10px] right-[15px] cursor-pointer"
-                                onClick={() => openInnerSubMenu(subIndex)}
-                              />
-                            )}
-                          </>
-                        )}
-                      </div>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Smart Tablet
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Crepe T-Shirt
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Leather Watch
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </li>
 
-                      {innerSubmenuIndex === subIndex && subcategory.hasSubmenu && (
-                        <ul className="inner_submenu w-full pl-3">
-                          {subcategory.items.map((item, itemIndex) => (
-                            <li key={itemIndex}>
-                              <Link
-                                to={item.path}
-                                className="link text-[14px] px-3 block py-1"
-                              >
-                                {item.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+          {/* Jewellery */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Jewellery
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Watches */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Watches
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* OUTWERE 🧥 */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Outwere
+                </Button>
+              </Link>
+              {submenuIndex !== 1 ? (
+                <MdOutlineAddBox
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(1)}
+                />
+              ) : (
+                <FaRegSquareMinus
+                  className="absolute top-[10px] right-[15px] cursor-pointer"
+                  onClick={() => openSubmenu(1)}
+                />
               )}
-            </li>
-          ))}
+            </div>
+            {submenuIndex === 1 && (
+              <ul className="submenu w-full pl-3">
+                <li className="list-none">
+                  <div className="flex items-center relative">
+                    <Link to="/" className="w-full">
+                      <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                        Apparel
+                      </Button>
+                    </Link>
+                    {innerSubmenuIndex !== 1 ? (
+                      <MdOutlineAddBox
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(1)}
+                      />
+                    ) : (
+                      <FaRegSquareMinus
+                        className="absolute top-[10px] right-[15px] cursor-pointer"
+                        onClick={() => openInnerSubMenu(1)}
+                      />
+                    )}
+                  </div>
+                  {innerSubmenuIndex === 1 && (
+                    <ul className="inner_submenu w-full pl-3">
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Rolling Diamond
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Smart Tablet
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Crepe T-Shirt
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link text-[14px] px-3 block py-1"
+                        >
+                          Leather Watch
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {/* Cosmetics */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Cosmetics
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Accessories */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Accessories
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Electronics */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Electronics
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Furniture */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Furniture
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Sunglasses */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Sunglasses
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* X-Box Controller */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  X-Box Controller
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Leather watch */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Leather watch
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Smart Tablet */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Smart Tablet
+                </Button>
+              </Link>
+            </div>
+          </li>
+
+          {/* Purse */}
+          <li className="list-none">
+            <div className="flex items-center relative">
+              <Link to="/" className="w-full">
+                <Button className="w-full !text-left !justify-start px-3 !text-[rgba(0,0,0,0.8)]">
+                  Purse
+                </Button>
+              </Link>
+            </div>
+          </li>
         </ul>
       </div>
     </Box>
