@@ -11,6 +11,7 @@ import ChairImg from "../../assets/HomeCatImg/Chair-HCI-5.jpg";
 import ShoeImg from "../../assets/HomeCatImg/Shoe-HCI-6.jpg";
 import PurseImg from "../../assets/HomeCatImg/Purse-HCI-7.jpg";
 import Controller from "../../assets/HomeCatImg/Controller-HCI-8.jpg";
+import HeadPhones from "../../assets/HomeCatImg/HeadPhones-HCI-9.jpg";
 import { Link } from "react-router-dom";
 
 const HomeCatSlider = () => {
@@ -18,42 +19,47 @@ const HomeCatSlider = () => {
     {
       src: IpadImg,
       text: "Smart Tablets",
-      path: "/"
+      path: "/",
     },
     {
       src: TshirtImg,
       text: "T-shirts",
-      path: "/"
+      path: "/",
     },
     {
       src: WatchImg,
       text: "Watches",
-      path: "/"
+      path: "/",
     },
     {
       src: RingImg,
       text: "Rings",
-      path: "/"
+      path: "/",
     },
     {
       src: ChairImg,
       text: "Wooden Chair",
-      path: "/"
+      path: "/",
     },
     {
       src: ShoeImg,
       text: "Sneakers",
-      path: "/"
+      path: "/",
     },
     {
       src: PurseImg,
       text: "Purse",
-      path: "/"
+      path: "/",
     },
     {
       src: Controller,
       text: "Controlers",
-      path: "/"
+      path: "/",
+    },
+    {
+      src: HeadPhones,
+      text: "Head-Phones",
+      path: "/",
     },
   ];
   return (
@@ -68,12 +74,12 @@ const HomeCatSlider = () => {
         >
           {CAT_IMAGES.map((image, index) => (
             <Link to={image.path} key={index} className="link">
-            <SwiperSlide className="cursor-pointer">
-              <div className="item py-4 px-1 bg-white rounded-sm text-center flex items-center justify-center flex-col">
-                <img src={image.src} alt="" />
-                <h3 className="text-[18px] font-[500]">{image.text}</h3>
-              </div>
-            </SwiperSlide>
+              <SwiperSlide className="cursor-pointer">
+                <div className="item py-4 px-1 bg-white rounded-sm text-center flex items-center justify-center flex-col">
+                  <img src={image.src} alt="" />
+                  <h3 className="text-[18px] font-[500]">{image.text}</h3>
+                </div>
+              </SwiperSlide>
             </Link>
           ))}
         </Swiper>
